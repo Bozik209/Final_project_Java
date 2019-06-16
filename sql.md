@@ -36,21 +36,8 @@ CREATE TABLE `javaproject`.`Tenant` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Personid` INT NOT NULL ,
   `apartmentNumber` INT NULL,
-  `Jan` INT NULL,
-  `Feb` INT NULL,
-  `Mar` INT NULL,
-  `Apr` INT NULL,
-  `May` INT NULL,
-  `Jun` INT NULL,
-  `Jul` INT NULL,
-  `Aug` INT NULL,
-  `Sep` INT NULL,
-  `Oct` INT NULL,
-  `Nov` INT NULL,
-  `Dec` INT NULL,
   FOREIGN KEY (Personid) REFERENCES Person(id),
   PRIMARY KEY (`id`));
-
 
 ```
 ## payments
