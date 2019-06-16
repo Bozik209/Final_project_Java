@@ -3,7 +3,7 @@ create database javaProject;
 
 use javaProject;
 ```
-#2 Person
+## Person
 ```
 
 CREATE TABLE `javaproject`.`Person` (
@@ -17,7 +17,7 @@ CREATE TABLE `javaproject`.`Person` (
   PRIMARY KEY (`id`));
 
 ```
-#2 Committee
+## Committee
 ```
 
 CREATE TABLE `javaproject`.`Committee` (
@@ -28,7 +28,7 @@ CREATE TABLE `javaproject`.`Committee` (
   PRIMARY KEY (`id`));
 
 ```
-#2 Tenant
+## Tenant
 ```
 
 CREATE TABLE `javaproject`.`Tenant` (
