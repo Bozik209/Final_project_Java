@@ -2,6 +2,9 @@
 create database javaProject;
 
 use javaProject;
+```
+#2 Person
+```
 
 CREATE TABLE `javaproject`.`Person` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -13,8 +16,9 @@ CREATE TABLE `javaproject`.`Person` (
   `Role` INT NOT NULL,
   PRIMARY KEY (`id`));
 
-
-
+```
+#2 Committee
+```
 
 CREATE TABLE `javaproject`.`Committee` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -23,7 +27,9 @@ CREATE TABLE `javaproject`.`Committee` (
   FOREIGN KEY (Personid) REFERENCES Person(id),
   PRIMARY KEY (`id`));
 
-
+```
+#2 Tenant
+```
 
 CREATE TABLE `javaproject`.`Tenant` (
   `id` INT NOT NULL AUTO_INCREMENT,
