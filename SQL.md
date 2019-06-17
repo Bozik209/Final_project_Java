@@ -54,9 +54,6 @@ CREATE TABLE `payments` (
 ```
 
 ## query
-```
--- ------------------------------------------------------------------------------------------------------------
-```
 #### 2.שאילתה לקבלת החודשים ששילם הדייר.
 ```
 -- all  month
@@ -67,46 +64,46 @@ from payments;
 select paymentSum,paymentDate
 from payments
 where MONTH(paymentDate)=06;
+```
 
--- ------------------------------------------------------------------------------------------------------------
 
--- 3.שאילתה של כל הדיירים עם מספר דירה וכל החודשים ששולמו.
+#### 3.שאילתה של כל הדיירים עם מספר דירה וכל החודשים ששולמו.
+```
 select person.FirstName,person.LastName, payments.paymentSum ,payments.paymentDate ,tenant.apartmentNumber
 from person
 INNER JOIN payments ON person.id=payments.paymentId
 LEFT JOIN tenant on person.id=tenant.id;
+```
 
--- ------------------------------------------------------------------------------------------------------------
-
--- 4.עדכון של תשלום של דייר מאת ועד הבית.
+#### 4.עדכון של תשלום של דייר מאת ועד הבית.
+```
 -- מספר דירה,חודש,
 UPDATE payments
 SET paymentSum=250
 WHERE 1=payments.paymentId;   -- the tenant number toy want update
 
 select * from payments;
-
--- ------------------------------------------------------------------------------------------------------------
--- 5.הצגת הכנסה חודשית לפי חודשים לבניין.(כמה שילמו באותו חודש.)
+```
+#### 5.הצגת הכנסה חודשית לפי חודשים לבניין.(כמה שילמו באותו חודש.)
+```
 SELECT paymentDate,SUM(paymentSum)
 FROM payments
 GROUP BY MONTH(paymentDate);
 
 select * from payments;
+```
 
--- ------------------------------------------------------------------------------------------------------------
--- 6.שאילתה שתיתן לדייר לצפות כמה תשלומים שילם בכל חודש.
-
+#### 6.שאילתה שתיתן לדייר לצפות כמה תשלומים שילם בכל חודש.
+```
 select person.id,person.FirstName,payments.paymentSum, MONTH(payments.paymentDate)
 from payments 
 INNER JOIN person ON person.id=1
 GROUP BY MONTH(paymentDate);
-
--- ------------------------------------------------------------------------------------------------------------
--- 7.בדיקת סיסמא.
+```
+#### 7.בדיקת סיסמא.
+```
 SELECT username,Password 
 FROM person 
 WHERE username = '?' AND password = ?;
 -- WHERE username = 'israel' AND password = 123456;
--- ------------------------------------------------------------------------------------------------------------
 ```
