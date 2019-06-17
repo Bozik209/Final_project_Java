@@ -1,4 +1,5 @@
-## javaProject
+# javaProject
+## create database
 ```
 create database javaProject;
 
@@ -53,7 +54,7 @@ CREATE TABLE `payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-## query
+# query
 #### 2.שאילתה לקבלת החודשים ששילם הדייר.
 ```
 -- all  month
