@@ -57,8 +57,11 @@ CREATE TABLE `payments` (
 #### 2.שאילתה לקבלת החודשים ששילם הדייר.
 ```
 -- all  month
-select paymentSum,paymentDate
-from payments;
+select payments.paymentSum,MONTH(payments.paymentDate) as MONTH ,tenant.apartmentNumber
+from payments
+INNER JOIN tenant ON tenant.id=payments.paymentId
+where tenant.apartmentNumber=5 
+GROUP BY MONTH(paymentDate);
 
 -- by date
 select paymentSum,paymentDate
