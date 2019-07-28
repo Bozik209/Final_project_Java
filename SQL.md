@@ -52,6 +52,12 @@ CREATE TABLE `payments` (
   KEY `fk_tenant_payment_idx` (`idTenants`),
   CONSTRAINT `fk_tenant_payment` FOREIGN KEY (`idTenants`) REFERENCES `Tenant` (`Personid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+ALTER TABLE `javaproject`.`payments` 
+CHANGE COLUMN `paymentId` `paymentId` INT(11) NOT NULL AUTO_INCREMENT ;
+
 ```
 
 # query
