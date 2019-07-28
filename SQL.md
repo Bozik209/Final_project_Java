@@ -83,10 +83,12 @@ LEFT JOIN tenant on person.id=tenant.id;
 ```
 -- מספר דירה,חודש,
 UPDATE payments
-SET paymentSum=250
-WHERE 1=payments.paymentId;   -- the tenant number toy want update
-
-select * from payments;
+SET paymentSum=350, paymentDate="2019-01-25"
+WHERE payments.idTenants = (
+        select Personid 
+        from tenant
+        where apartmentNumber=5
+);
 ```
 #### 5.הצגת הכנסה חודשית לפי חודשים לבניין.(כמה שילמו באותו חודש.)
 ```
