@@ -44,20 +44,14 @@ CREATE TABLE `javaproject`.`Tenant` (
 ## payments
 ```
 CREATE TABLE `payments` (
-  `paymentId` int(11) NOT NULL,
+  `paymentId` int(11) NOT NULL AUTO_INCREMENT,
   `paymentSum` decimal(10,0) DEFAULT NULL,
   `idTenants` int(11) DEFAULT NULL,
   `paymentDate` date DEFAULT NULL,
   PRIMARY KEY (`paymentId`),
   KEY `fk_tenant_payment_idx` (`idTenants`),
-  CONSTRAINT `fk_tenant_payment` FOREIGN KEY (`idTenants`) REFERENCES `Tenant` (`Personid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-ALTER TABLE `javaproject`.`payments` 
-CHANGE COLUMN `paymentId` `paymentId` INT(11) NOT NULL AUTO_INCREMENT ;
-
+  CONSTRAINT `fk_tenant_payment` FOREIGN KEY (`idTenants`) REFERENCES `tenant` (`Personid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8
 ```
 
 # query
@@ -88,13 +82,10 @@ LEFT JOIN tenant on person.id=tenant.id;
 #### 4.עדכון של תשלום של דייר מאת ועד הבית.
 ```
 -- מספר דירה,חודש,
-UPDATE payments
-SET paymentSum=350, paymentDate="2019-01-25"
-WHERE payments.idTenants = (
-        select Personid 
-        from tenant
-        where apartmentNumber=5
-);
+INSERT INTO `javaproject`.`payments`
+(`paymentSum`,`idTenants`,`paymentDate`)
+VALUES
+(333,(select Personid from tenant where apartmentNumber=6),"2019-01-25");
 ```
 #### 5.הצגת הכנסה חודשית לפי חודשים לבניין.(כמה שילמו באותו חודש.)
 ```
