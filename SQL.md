@@ -110,3 +110,10 @@ FROM person
 WHERE username = '?' AND password = ?;
 -- WHERE username = 'israel' AND password = 123456;
 ```
+#### במידה והמשתמש בחר ללכת על בחירת סיסמא חדשה תוצג למשתמש הודעה להקליד את שם המשתמש בלבד וסיסמא חדשה שברצונו לקבוע 
+```
+SET SQL_SAFE_UPDATES=0;
+UPDATE person
+SET Password=123456
+WHERE username = 'israel';
+```
