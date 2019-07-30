@@ -114,6 +114,6 @@ WHERE username = '?' AND password = ?;
 ```
 SET SQL_SAFE_UPDATES=0;
 UPDATE person
-SET Password=123456
-WHERE username = 'israel';
+SET Password=?
+WHERE username = ?;
 ```
