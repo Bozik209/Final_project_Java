@@ -73,9 +73,13 @@ where MONTH(paymentDate)=06;
 
 #### 3.שאילתה של כל הדיירים עם מספר דירה וכל החודשים ששולמו.
 ```
-select person.FirstName,person.LastName, payments.paymentSum ,payments.paymentDate ,tenant.apartmentNumber
+select  person.FirstName,
+		    person.LastName, 
+        payments.paymentSum,
+        payments.paymentDate,
+        tenant.apartmentNumber
 from person
-INNER JOIN payments ON person.id=payments.paymentId
+INNER JOIN payments ON person.id=payments.idTenants
 LEFT JOIN tenant on person.id=tenant.id;
 ```
 
